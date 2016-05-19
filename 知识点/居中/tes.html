@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+*{
+  box-sizing: border-box;
+}
+
+ul, li, dl,dt,dd{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+dl:after,
+ul:after,
+li:after,
+dt:after,
+dd:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.col-1, .col-2,.col-3,.col-4,.col-5{
+  float: left;
+}
+
+.col-1{
+  width: 100px;
+}
+.col-2{
+  width: 200px;
+}
+.col-3{
+  width: 300px;
+}
+.col-4{
+  width: 400px;
+}
+.col-5{
+  width: 500px; 
+}
+
+
+
+.table{
+  font-size: 14px;
+  width: 600px;
+  margin: 20px auto;
+}
+.table dt{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.table li,
+.table dt,
+.table dd{
+  text-align: center;
+  line-height: 40px;
+}
+
+
+.table .head{
+  background: rgb(33,79,118);
+  color: #fff;
+}
+.table dt,
+.table li{
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.table li:last-child{
+  border-right: 1px solid #ccc;
+}
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+  <div class="ct">
+  <!--
+  <div class="table">
+    <ul class="head">
+      <li class="col-1">country</li>
+      <li class="col-1">year</li>
+      <li class="col-1">city</li>
+      <li class="col-1">grade</li>
+      <li class="col-1">contestants</li>
+      <li class="col-1">winners</li>    
+    </ul>
+    <dl class="detail">
+      <dt class="col-1">china</dt>
+      <dd class="col-5">
+        <dl>
+          <dt class="col-1">2014</dt>
+          <dd class="col-4">
+            <dl>
+              <dt class="col-1">上海</dt>
+              <dd class="col-3">
+                <ul>
+                  <li class="col-1">高二</li>
+                  <li class="col-1">192</li>
+                  <li class="col-1">7</li>
+                </ul>
+              </dd>
+              <dd class="col-3">
+                <ul>
+                  <li class="col-1">高三</li>
+                  <li class="col-1">300</li>
+                  <li class="col-1">100</li>
+                </ul>
+              </dd>
+            </dl>
+            <ul class="total">
+              <li class="col-2">小计</li>
+              <li class="col-1">100</li>
+              <li class="col-1">200</li>
+            </ul>
+          </dd>
+          <dd class="col-4">
+            <dl>
+              <dt class="col-1">上海</dt>
+              <dd class="col-3">
+                <ul>
+                  <li class="col-1">高二</li>
+                  <li class="col-1">192</li>
+                  <li class="col-1">7</li>
+                </ul>
+              </dd>
+              <dd class="col-3">
+                <ul>
+                  <li class="col-1">高三</li>
+                  <li class="col-1">300</li>
+                  <li class="col-1">100</li>
+                </ul>
+              </dd>
+            </dl>
+            <ul class="total">
+              <li class="col-2">小计</li>
+              <li class="col-1">100</li>
+              <li class="col-1">200</li>
+            </ul>
+          </dd>
+        </dl>
+        <ul class="total">
+          <li class="col-3">小计</li>
+          <li class="col-1">100</li>
+          <li class="col-1">200</li>
+        </ul>
+      </dd>
+      <dd class="col-5">
+        <dl>
+          <dt class="col-1">2014</dt>
+          <dd class="col-4">
+            <dl>
+              <dt class="col-1">上海</dt>
+              <dd class="col-3">
+                <ul>
+                  <li class="col-1">高二</li>
+                  <li class="col-1">192</li>
+                  <li class="col-1">7</li>
+                </ul>
+              </dd>
+              <dd class="col-3">
+                <ul>
+                  <li class="col-1">高三</li>
+                  <li class="col-1">300</li>
+                  <li class="col-1">100</li>
+                </ul>
+              </dd>
+            </dl>
+            <ul class="total">
+              <li class="col-2">小计</li>
+              <li class="col-1">100</li>
+              <li class="col-1">200</li>
+            </ul>
+          </dd>
+          <dd class="col-4">
+            <dl>
+              <dt class="col-1">上海</dt>
+              <dd class="col-3">
+                <ul>
+                  <li class="col-1">高二</li>
+                  <li class="col-1">192</li>
+                  <li class="col-1">7</li>
+                </ul>
+              </dd>
+              <dd class="col-3">
+                <ul>
+                  <li class="col-1">高三</li>
+                  <li class="col-1">300</li>
+                  <li class="col-1">100</li>
+                </ul>
+              </dd>
+            </dl>
+            <ul class="total">
+              <li class="col-2">小计</li>
+              <li class="col-1">100</li>
+              <li class="col-1">200</li>
+            </ul>
+          </dd>
+        </dl>
+        <ul class="total">
+          <li class="col-3">小计</li>
+          <li class="col-1">100</li>
+          <li class="col-1">200</li>
+        </ul>
+      </dd>
+      <dd class="col-5">
+        <dl>
+          <dt class="col-1">2014</dt>
+          <dd class="col-4">
+            <dl>
+              <dt class="col-1">上海</dt>
+              <dd class="col-3">
+                <ul>
+                  <li class="col-1">高二</li>
+                  <li class="col-1">192</li>
+                  <li class="col-1">7</li>
+                </ul>
+              </dd>
+              <dd class="col-3">
+                <ul>
+                  <li class="col-1">高三</li>
+                  <li class="col-1">300</li>
+                  <li class="col-1">100</li>
+                </ul>
+              </dd>
+            </dl>
+            <ul class="total">
+              <li class="col-2">小计</li>
+              <li class="col-1">100</li>
+              <li class="col-1">200</li>
+            </ul>
+          </dd>
+          <dd class="col-4">
+            <dl>
+              <dt class="col-1">上海</dt>
+              <dd class="col-3">
+                <ul>
+                  <li class="col-1">高二</li>
+                  <li class="col-1">192</li>
+                  <li class="col-1">7</li>
+                </ul>
+              </dd>
+              <dd class="col-3">
+                <ul>
+                  <li class="col-1">高三</li>
+                  <li class="col-1">300</li>
+                  <li class="col-1">100</li>
+                </ul>
+              </dd>
+            </dl>
+            <ul class="total">
+              <li class="col-2">小计</li>
+              <li class="col-1">100</li>
+              <li class="col-1">200</li>
+            </ul>
+          </dd>
+        </dl>
+        <ul class="total">
+          <li class="col-3">小计</li>
+          <li class="col-1">100</li>
+          <li class="col-1">200</li>
+        </ul>
+      </dd>
+    </dl>
+    <ul class="total">
+      <li class="col-4">小计</li>
+      <li class="col-1">100</li>
+      <li class="col-1">200</li>
+    </ul>
+  </div>
+  </div>
+  -->
+  <script>
+
+
+
+
+
+
+ var jsonStr='{"table":[{"country":"China","year":"2014","city":"上海","grade":"高三","contestants":"192","winners":"7"},{"country":"China","year":"2014","city":"上海","grade":"高二","contestants":"267","winners":"11"},{"country":"China","year":"2014","city":"北京","grade":"高二","contestants":"255","winners":"12"},{"country":"China","year":"2014","city":"北京","grade":"高三","contestants":"254","winners":"23"},{"country":"China","year":"2015","city":"北京","grade":"高三","contestants":"259","winners":"18"},{"country":"China","year":"2015","city":"上海","grade":"高二","contestants":"262","winners":"19"},{"country":"China","year":"2016","city":"上海","grade":"高三","contestants":"268","winners":"22"},{"country":"China","year":"2016","city":"上海","grade":"高二","contestants":"218","winners":"18"},{"country":"China","year":"2016","city":"北京","grade":"高二","contestants":"261","winners":"17"},{"country":"China","year":"2016","city":"北京","grade":"高三","contestants":"255","winners":"16"}]}';
+
+var data = JSON.parse(jsonStr).table;
+var obj = {total: [0,0]};
+
+for(var i=0;i<data.length; i++){
+  var item = data[i];
+  
+  if(!obj[item.year]){
+    obj[item.year] = {};
+    obj[item.year].total = [0, 0];
+  }
+
+  var city = item.city;
+
+  if(!obj[item.year][item.city]){
+    obj[item.year][item.city] = {};
+    obj[item.year][item.city].grades = [];
+    obj[item.year][item.city].total = [0,0];
+  }
+
+  obj[item.year][item.city].grades.push([item.contestants, item.winners, item.grade]);
+  obj[item.year][item.city].total[0] += parseInt(item.contestants);
+  obj[item.year][item.city].total[1] += parseInt(item.winners);
+
+  obj[item.year].total[0] += parseInt(item.contestants);
+  obj[item.year].total[1] += parseInt(item.winners);
+  
+  obj.total[0] += parseInt(item.contestants);
+  obj.total[1] += parseInt(item.winners);
+
+}
+
+console.log(obj);
+
+
+
+function render(obj){
+
+
+
+  var html = '  <div class="table">\
+                  <ul class="head">\
+                    <li class="col-1">country</li>\
+                    <li class="col-1">year</li>\
+                    <li class="col-1">city</li>\
+                    <li class="col-1">grade</li>\
+                    <li class="col-1">contestants</li>\
+                    <li class="col-1">winners</li>\
+                  </ul>';
+
+    html += ' <dl class="detail">\
+               <dt class="col-1 ok">china</dt>';
+    
+    for(var year in obj){
+      if(year === 'total') continue;
+      var yearObj = obj[year];
+
+      html+= ' <dd class="col-5"><dl>';
+      html+= '<dt class="col-1">'+year+'</dt>';
+
+      for(var city in yearObj){
+        if(city === 'total') continue;
+
+        var cityObj = yearObj[city];
+
+        html += '<dd class="col-4">';
+
+        html += '  <dl><dt class="col-1">'+city+'</dt>';
+
+        for(var gradeIdx = 0; gradeIdx<cityObj.grades.length; gradeIdx++){
+          var gradeObj = cityObj.grades[gradeIdx];
+
+          html += '<dd class="col-3">'
+                +'<ul>'
+                +  '<li class="col-1">'+gradeObj[2]+'</li>'
+                +  '<li class="col-1">'+gradeObj[0]+'</li>'
+                +  '<li class="col-1">'+gradeObj[1]+'</li>'
+                + '</ul>'
+              +'</dd>'
+        }
+
+
+        html += '  </dl>';
+
+        html += '<ul class="total">'
+            +  '<li class="col-2">小计</li>'
+            +  '<li class="col-1">'+cityObj.total[0]+'</li>'
+            +  '<li class="col-1">'+cityObj.total[1]+'</li>'
+            + '</ul>'
+
+        html += '</dd>';
+
+      }
+
+
+      html+= '</dl>';
+      
+      html += '<ul class="total">'
+          +   '<li class="col-3">小计</li>'
+          +   '<li class="col-1">'+yearObj.total[0]+'</li>'
+          +   '<li class="col-1">'+yearObj.total[1]+'</li>'
+         +  '</ul></dd>';
+
+    }
+
+  html += '</dl>'
+
+
+  html+= ' <ul class="total">'
+            +'<li class="col-4">小计</li>'
+            +'<li class="col-1">'+obj.total[0]+'</li>'
+           +' <li class="col-1">'+obj.total[1]+'</li>'
+           +'</ul>'  
+          +'</div>';
+
+  return html;
+
+}
+
+var html = render(obj);
+$('.ct').append(html);
+$('dt').each(function(){
+  var $dd = $(this).siblings('dd'),
+      totalHeight = 0;
+  for(var i=0; i<$dd.length; i++){
+    totalHeight += $dd.eq(i).outerHeight(true);
+  }
+
+  $(this).css({height: totalHeight, 'line-height': totalHeight+'px'});
+});
+
+
+/*
+var sample = {
+  '2014': {
+    '北京': {
+      grades: {
+        [10, 7, '高二'],
+        [30, 10, '高三']
+      },
+      total: [40, 17]
+    },
+    '上海': {},
+    total: []
+  },
+  '2015': {},
+  'total': [200, 100]
+}
+*/
+
+
+  </script>
+
+
+
+
+</body>
+</html>

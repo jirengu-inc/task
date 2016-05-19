@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>我的 DEMO</title>
+  <link rel="stylesheet" href="css/markdown.css">
+  <link rel="stylesheet" href="css/code.css">
+  <link rel="stylesheet" href="css/demo2.css">
+  <link rel="stylesheet" href="css/modal.css">
+  <link rel="stylesheet" href="font/iconfont.css">
+</head>
+<body>
+<div id="header" class="layout">
+  <h1>我的 DEMO</h1>
+  <p class="intro">一句话 DEMO 描述</p>
+  <ul class="demo-btns">
+    <li><a class="btn" href="demo1.html">基本样式</a></li>
+    <li><a class="btn active" href="demo2.html">Modal样式</a></li>
+    <li><a class="btn" href="demo3.html">轮播组件</a></li>
+    <li><a class="btn" href="demo4.html">轮播插件</a></li>
+    <li><a class="btn" href="demo4.html">全屏轮播</a></li>
+  </ul>
+</div>
+<div id="content" class="layout">
+  <div class="preview">
+    <img src="http://7xpvnv.com2.z0.glb.qiniucdn.com/65d4aba2-a097-4b24-aaa0-ebbaf7eedab2" alt="">
+  </div>
+  <div class="btns">
+    <a class="btn" href="https://github.com/jirengu/server-mock"><span class="iconfont icon-iconfontfisocialgithub"></span> 查看源码</a>
+    <a class="btn btn-useage" href=""><span class="iconfont icon-shiyongzhinan"></span> 使用说明</a>
+  </div>
+</div>
+<div id="footer" class="layout">
+  作者: <a href="">我</a>
+</div>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/highlight.js/9.1.0/highlight.min.js"></script>
+<script src="js/modal.js"></script>
+<script>
+
+$('.btn-useage').on('click', function(e){
+  e.preventDefault();
+  Dialog.open()
+  $.get('http://jirenguapi.applinzi.com',{type:'github', url:'https://github.com/jirengu/server-mock'}).done(function(tpl){
+    Dialog.open(tpl);
+
+    $('pre code').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+  });
+
+})
+
+
+</script>
+</body>
+</html>

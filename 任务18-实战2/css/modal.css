@@ -1,0 +1,53 @@
+.dialog .dialog-overlay {
+	opacity: 0.8;
+	background:#000;
+	position:fixed;
+	top:0;
+  bottom:0;
+  left:0;
+  right: 0;
+	z-index:3000;
+}
+
+
+.dialog .dialog-box {
+  position:absolute;
+	z-index:5000;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  text-align: left;
+  padding-bottom: 10px;
+  border-radius: 5px;
+	background:#eee;
+	width:90%;
+  margin-bottom: 30px;
+}
+
+
+.dialog  .btn-close{
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  color: #fff;
+  z-index: 4000;
+  font-size: 30px;
+  cursor: pointer;
+}
+.dialog .dialog-content {
+	padding:10px;
+	margin:13px;
+	color:#666;
+	font-size:11px;
+  transition: all 0.3s;
+}
+.dialog .dialog-footer{
+  text-align: center;
+}
+.dialog .loading{
+  text-align: center;
+}
+.dialog .loading img{
+  width: 40px;
+}
