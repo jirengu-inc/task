@@ -1,0 +1,88 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+  p{
+    margin:0;
+    padding:0;
+    border: 1px solid #ccc;
+  }
+
+
+  .ex1{
+    line-height: 120px;
+    font-size: 80px;
+    font-family: serif;
+    position: relative;
+  }
+  /*垂直居中测试*/
+  .ex1:before {
+      content: '';
+      display: block;
+      position: absolute;
+      border-top: 1px solid red;
+      width: 100%;
+      top: 50%;
+  }
+
+  .ex3 .s1{
+    line-height: 20px;
+    /*vertical-align: bottom;*/
+  }
+  .ex3 .s2{
+    line-height: 40px;
+  }
+
+  .ex4{
+    line-height: 1.5; /*把倍数继承*/
+  }
+  .ex5{
+    line-height: 150%;  /*先计算值，在把计算后的值继承*/
+  }
+
+  .ex5 .s1,
+  .ex4 .s1{
+    font-size: 20px;
+  }
+
+  .ex5 .s2,
+  .ex4 .s2{
+    font-size: 40px;
+  }
+
+
+
+
+  .box{
+    background: #eee;
+    margin: 30px;
+  }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <p class="ex1">hello hunger 饥人谷x</p>
+    <p class="ex1">hello hunger 饥人谷x</p>
+  </div>
+  <div class="box">
+    <p class="ex2">hello hunger 饥人谷x</p>
+  </div>
+  <div class="box">
+    <p class="ex3">hello hunger 饥人谷x  <span class="s1">span1</span> <span class="s2">span2</span></p>
+  </div>
+  <div class="box ex4">
+    <p class="ex4"><span class="s1">span1</span> <span class="s2">span2</span></p>
+    <p class="ex5"><span class="s1">span1</span> <span class="s2">span2</span></p>
+  </div>
+
+  <div class="box">
+    <p class="ex6">
+      <img src="http://7xpvnv.com2.z0.glb.qiniucdn.com/067f05a5-0f53-43bb-ba85-5804ab99ad66" alt="">
+      <span>hello</span>
+    </p>
+  </div>
+
+
+</body>
+</html>
