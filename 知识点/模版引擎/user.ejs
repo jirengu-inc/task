@@ -1,0 +1,23 @@
+<% include helper %>
+<!doctype html>
+<html>
+<body>
+<div class="header">
+    <% if(islogin){ %>
+        <p> hello <%= username %> </p>
+        <p> 创建自 <%= parseDate(createAt) %> </p>
+    <% }else{ %>
+        <p> 请先登陆 </p>
+    <% } %>
+
+    <ul>
+    <% for(var i=0; i< friends.length; i++){ %>
+        <li> <%= friends[i] %> </li>
+    <% } %>
+    </ul>
+</div>
+</body>
+
+
+
+</html>
