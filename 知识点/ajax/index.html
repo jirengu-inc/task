@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>server-mock使用说明</title>
+<style>
+  .container{
+    width: 600px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+
+  <div class="container">
+     <input id="ipt-book" type="text" placeholder="要查的书名"> <button id="btn-query">查询</button>
+     <ul class="books">
+
+     </ul>
+  </div>
+
+
+  	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    /**
+     * {
+     *   status: 0, //1
+     *   data: [
+     *     {name: 'javascript权威指南'},
+     *     {name: 'javascript高级程序设计'}
+     *   ]
+     *   errMsg: '错误原因'
+     * 
+     * }
+     *
+     *
+     *
+     * 
+     */
+
+     $('#btn-query').on('click', function(){
+        var book = $('#ipt-book').val();
+        $.ajax({
+          url: '/getBook',
+          type: "get",
+          data: {
+            bookName: book
+          },
+          success: function(ret){
+            if(ret.status === 0){
+              var str = '';
+              for(var i=0; i<ret.data.length; i++){
+                str += '<li>' + ret.data[i].name + '</li>';
+              }
+              $('.books').html(str);
+            }else{
+              $('.books').text(ret.errorMsg);
+            }
+          },
+          error: function(){
+            $('.books').text('系统异常')
+          }
+        })
+
+     });
+
+
+
+
+  	</script>
+</body>
+</html>
