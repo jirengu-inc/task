@@ -10,40 +10,42 @@
  * 返回响应数据
  */
 app.get('/getBook', function(req, res) {
-	console.log(req.query);
-	var book = req.query.bookName;
-	var data1 = {
-         status: 0, //1
-         data: [
-           {name: 'javascript权威指南'},
-           {name: 'javascript高级程序设计'}
-         ]
+    console.log(req.query);
+    var book = req.query.bookName;
+    var data1 = {
+        status: 0, //1
+        data: [{
+            name: 'javascript权威指南'
+        }, {
+            name: 'javascript高级程序设计'
+        }]
     };
-	var data2 = {
-         status: 1, //1
-         errorMsg: "查询数据库失败"
+    var data2 = {
+        status: 1, //1
+        errorMsg: "查询数据库失败"
     };
-	var data3 = {
-         status: 0, //1
-         data: [
-           {name: 'html权威指南'},
-           {name: 'html高级程序设计'}
-         ]
+    var data3 = {
+        status: 0, //1
+        data: [{
+            name: 'html权威指南'
+        }, {
+            name: 'html高级程序设计'
+        }]
     };
 
-    if(book === ''){
-    	console.log('data2');
-    	return res.send(data2);
+    if (book === '') {
+        console.log('data2');
+        return res.send(data2);
     }
-    if(book === 'javascript'){
-    	res.send(data1);
-    }else{
-    	console.log('333');
-    	res.send(data3);
+    if (book === 'javascript') {
+        res.send(data1);
+    } else {
+        console.log('333');
+        res.send(data3);
     }
 
 
-	
+
 });
 
 
@@ -53,12 +55,12 @@ app.get('/getBook', function(req, res) {
  * query = { name: 'ruoyu', age: 28 }
  */
 app.get('/user/:uid', function(req, res) {
-	console.log(req.params.uid); //100
-	console.log(req.query.name); // 'ruoyu'
-	res.send({
-		status: 1,
-		errorMsg: "请先注册"
-	});
+    console.log(req.params.uid); //100
+    console.log(req.query.name); // 'ruoyu'
+    res.send({
+        status: 1,
+        errorMsg: "请先注册"
+    });
 });
 
 
@@ -68,14 +70,14 @@ app.get('/user/:uid', function(req, res) {
  * query = { comment: "这是评论内容" }
  */
 app.post('/comment', function(req, res) {
-	console.log(req.body.comment); // "这是评论内容"
-	res.send({
-		status: 0,
-		data: {
-			cid: 100,
-			comment: "这是评论内容"
-		}
-	});
+    console.log(req.body.comment); // "这是评论内容"
+    res.send({
+        status: 0,
+        data: {
+            cid: 100,
+            comment: "这是评论内容"
+        }
+    });
 });
 
 
@@ -86,7 +88,7 @@ app.post('/comment', function(req, res) {
  * 支持 ejs, jade 模板
  */
 app.get('/user', function(req, res) {
-	res.render('user.ejs', {
-		username: '饥人谷'
-	});
+    res.render('user.ejs', {
+        username: '饥人谷'
+    });
 });
