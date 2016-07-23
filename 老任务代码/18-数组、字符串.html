@@ -1,91 +1,90 @@
 <script>
-	function push(arr, val) {
-		arr.splice(arr.length, 0, val);
-		return arr.length;
-	}
-	function pop(arr) {
-		var tmpArr = arr.splice(arr.length-1, 1);
-		return tmpArr[0];
-	}
-	function shift(arr) {
-		var tmpArr = arr.splice(0, 1);
-		return tmpArr[0];
-	}
-	function unshift(arr, val){
-		arr.splice(0, 0, val);
-		return arr.length;
-	}
+    function push(arr, val) {
+        arr.splice(arr.length, 0, val);
+        return arr.length;
+    }
 
+    function pop(arr) {
+        var tmpArr = arr.splice(arr.length - 1, 1);
+        return tmpArr[0];
+    }
 
-	var prod = {
-		name: '女装',
-		styles: ['短款', '冬季', '春装']
-	};
+    function shift(arr) {
+        var tmpArr = arr.splice(0, 1);
+        return tmpArr[0];
+    }
 
-	function getTplStr(data){
-		var tpl = '<dl class="product">';
-		tpl += '<dt' + data.name + '</dt>';
-		for(var i=0; i<prod.styles.length; i++){
-			tpl += '<dd>' + data.styles[i] + '</dd>';
-		}
-		tpl += '</dl>';
-		return tpl;
-	}
-
-
-	function find(arr, val){
-		for(var i=0; i<arr.length; i++){
-			if(arr[i] === val){
-				return i;
-			}
-		}
-		return -1;
-	}
-
-	function filterNumberic(arr){
-		var newArr = [];
-		for(var i=0; i<arr.length; i++){
-			if(typeof arr[i] === 'number'){
-				newArr.push(arr[i]);
-			}
-		}
-		return newArr;
-	}
-
-
-	var obj = {
-	  className: 'open menu'
-	}
-
-	// 学了正则可以使用正则,代码会更精简一些，这里没使用数组ES5 的方法
-	function addClass(obj, cls){
-		var classArr = obj.className.split(' ');
-		for(var i=0; i<classArr.length; i++){
-			if(cls === classArr[i]){
-				return;
-			}
-		}
-		obj.className += ' ' + cls;
-	}
-	function removeClass(obj, cls){
-		var classArr = obj.className.split(' ');
-		for(var i=0; i<classArr.length; i++){
-			if(cls === classArr[i]){
-				classArr.splice(i, 1);
-				i--;
-			}
-		}
-		obj.className = classArr.join(' ');
-	}
-
-	function camelize(str){
-		var arr = str.split('-');
-	}
+    function unshift(arr, val) {
+        arr.splice(0, 0, val);
+        return arr.length;
+    }
 
 
 
+    var prod = {
+        name: '女装',
+        styles: ['短款', '冬季', '春装']
+    };
+    console.log(prod);
+
+    function getTplStr(data) {
+        var tpl = '<dl class="product">';
+        tpl += '<dt' + data.name + '</dt>';
+        for (var i = 0; i < prod.styles.length; i++) {
+            tpl += '<dd>' + data.styles[i] + '</dd>';
+        }
+        tpl += '</dl>';
+        return tpl;
+    }
 
 
+    function find(arr, val) {
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] === val) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    function filterNumberic(arr) {
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (typeof arr[i] === 'number') {
+                newArr.push(arr[i]);
+            }
+        }
+        return newArr;
+    }
 
 
+    var obj = {
+        className: 'open menu'
+    }
+
+    // 学了正则可以使用正则,代码会更精简一些，这里没使用数组ES5 的方法
+    function addClass(obj, cls) {
+        var classArr = obj.className.split(' ');
+        for (var i = 0; i < classArr.length; i++) {
+            if (cls === classArr[i]) {
+                return;
+            }
+        }
+        obj.className += ' ' + cls;
+    }
+
+    function removeClass(obj, cls) {
+        var classArr = obj.className.split(' ');
+        for (var i = 0; i < classArr.length; i++) {
+            if (cls === classArr[i]) {
+                classArr.splice(i, 1);
+                i--;
+            }
+        }
+        obj.className = classArr.join(' ');
+    }
+
+    function camelize(str) {
+        var arr = str.split('-');
+    }
 </script>

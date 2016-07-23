@@ -1,0 +1,110 @@
+<script>
+    /*
+                                                                                                        function find(arr, val) {
+                                                                                                            //todo ... 
+                                                                                                            if (arr.indexOf) {
+                                                                                                                console.log(arr.indexOf(val))
+                                                                                                                    //return arr.indexOf(val);
+                                                                                                            }
+
+                                                                                                            for (var i = 0; i < arr.length; i++) {
+                                                                                                                if (val === arr[i]) {
+                                                                                                                    console.log(i)
+                                                                                                                    return i;
+                                                                                                                }
+                                                                                                            }
+                                                                                                            return -1;
+
+                                                                                                            // var idx = -1;
+                                                                                                            // for (var i = 0; i < arr.legnth; i++) {
+                                                                                                            //     if (val === arr[i]) {
+                                                                                                            //         idx = i;
+                                                                                                            //     }
+                                                                                                            // }
+                                                                                                            // return idx;    
+                                                                                                        }
+                                                                                                        var arr = [3, 9, 'hello', 'hello', '饥人谷', 'ruoyu'];
+
+                                                                                                        var a = find(arr, 9); //1
+                                                                                                        var b = find(arr, 'ruoyu'); //4
+                                                                                                        var c = find(arr, 'world'); // -1
+
+                                                                                                        */
+
+    /*
+        function fn() {
+            var tmp = console.log(100);
+            return tmp;
+        }
+        var hello = fn();
+
+    */
+
+    var arr = [false, 3, -1, 'hello', 100, true, {}, '饥人谷'];
+
+    /*
+    function filterNumber(arr) {
+        // for (var i = 0; i < arr.length; i++) {
+        //     if (typeof arr[i] !== 'number') {
+        //         arr.splice(i, 1);
+        //         i--;
+        //     }
+        // }
+        for (var i = arr.length - 1; i >= 0; i--) {
+            if (typeof arr[i] !== 'number') {
+                arr.splice(i, 1);
+            }
+        }
+    }
+
+    function fileterNumber2(arr) {
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (typeof arr[i] === 'number') {
+                newArr.push(arr[i]);
+            }
+        }
+        return newArr;
+    }
+
+    filterNumber(arr)
+    console.log(arr); // [3, -1, 100]
+
+    var result = filterNumber2(arr);
+    console.log(arr); //[3, -1, 'hello', 100, true, {}, '饥人谷']
+    console.log(result); // [3, -1, 100]
+  */
+
+    function filter(arr, fn) {
+        for (var i = arr.length - 1; i >= 0; i--) {
+            if (!fn(arr[i])) {  //abc(arr[i])  // true fasle
+                arr.splice(i, 1);
+            }
+        }
+    }
+
+    // filter(arr, function(val) {
+    //     return typeof val === 'number';
+    // })
+    // console.log(arr);
+
+    // filter(arr, function(val) {
+    //     return typeof val === 'number' && val > 0;
+    // })
+    // console.log(arr)
+
+    filter(arr, function(val){
+      return typeof val === 'string'; 
+    })
+
+    function abc(val){
+      return typeof val === 'string'; 
+    }
+
+    /**
+     * function(val) {
+        return typeof val === 'string';
+    }
+     */
+    console.log(arr);
+</script>
