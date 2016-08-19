@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            padding: 30px;
+            margin: 50px;
+            border: 10px solid red;
+            text-align: justify;
+            box-sizing: border-box;
+        }
+        
+        .box2 {
+            width: 100px;
+            height: 10px;
+            background: blue;
+            margin: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box2"></div>
+    <div class="box">
+        fff
+    </div>
+
+
+    <form action="/info" method="get">
+        <div>姓名: <input name="name" type="text"></div>
+        <div>性别: 男<input name="sex" value="男" type="radio"> 女<input name="sex" type="radio" value="女"></div>
+        <div>爱好:
+            <input name="hobby[]" type="checkbox" value="dota">dota</input>
+            <input name="hobby[]" type="checkbox" value="travle" checked>旅游</input>
+            <input name="hobby[]" type="checkbox" value="pit" checked>宠物</input>
+        </div>
+        <div><input type="submit">提交</div>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<script>
+	
+	var a = 1;
+	var b = a;
+
+	var obj = {
+		a: 1,
+		b: 2,
+		c: {
+			d: 1,
+			e: 4
+		}
+	}
+	var obj2 = obj;
+
+	var obj3 = {}
+	for(var key in obj){
+		obj2[key] = obj[key]
+	}
+
+	function copy(srcObj){
+		var obj = {}
+		for(var key in srcObj){
+			if(typeof srcObj[key] === 'object'){
+				obj[key] = copy(srcObj[key]);
+			}else{
+				obj[key] = srcObj[key]
+			}
+			
+		}
+		return obj;
+	}
+
+	function deepCopy(srcObj){
+		var objStr = JSON.stringify(srcObj);
+		return JSON.parse(objStr);
+	}
+
+	var obj4 = copy(obj)
+
+
+</script>

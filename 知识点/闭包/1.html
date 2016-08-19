@@ -1,0 +1,120 @@
+<ul class="list">
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+</ul>
+
+<script>
+	
+	var lis = document.querySelectorAll('.list li');
+	for(var i = 0; i< lis.length; i++){
+		// (function(i){
+		// 	lis[i].onclick = function(){
+		// 		console.log(i);
+		// 	}
+		// })(i)
+		
+
+
+		lis[i].onclick = (function(i){
+			return function(){
+				console.log(i);
+			}
+		})(i)
+
+
+
+
+	}
+
+
+var globalVar;
+
+function outerFn() {
+
+	var obj = {name: 'hunger'};
+
+    var a = 1;
+    function innerFn() {
+    	console.log(a);
+    }
+    //globalVar = innerFn;
+    return innerFn;
+}
+
+var fn = outerFn();
+fn();
+
+
+function fn1(){
+	var speed = 0;
+
+	var obj = {
+		setSpeed: function(value){
+			speed = value;
+		},
+		getSpeed: function(){
+			return speed;
+		},
+		speedUp: function(){
+			speed++;
+		}
+	}
+	return obj;
+
+}
+
+var Car = fn1()
+
+
+
+console.log('------')
+
+  var fnArr = [];
+    for (var i = 0; i < 10; i ++) {
+        fnArr[i] =  (function(i){
+        	return function(){
+        		return i;
+        	}
+        })(i);
+    }
+    console.log( fnArr[3]() );
+
+    for (var i = 0; i < 10; i ++) {
+    	(function(i){
+	        fnArr[i] = function(){
+	        	return i;
+	        }
+    	})(i)
+    }
+
+    console.log( fnArr[3]() );  //
+
+for(var i=0;i<5;i++){
+	(function(){
+		var n = i;
+	    setTimeout(function(){
+	         console.log('delayer:' + n );
+	    }, 0);
+	})(i)
+
+    console.log(i);
+}
+
+
+function Person(name){
+	this.name = name;
+}
+
+function Male(name, age){
+	Person.call(this, name);
+	this.age = age;
+}
+var man = new Male('hunger', 100)
+
+
+
+
+
+
+</script>

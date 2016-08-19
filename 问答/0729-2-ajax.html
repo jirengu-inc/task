@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+
+</head>
+<body>
+    
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    console.log(1);
+    $.ajax({url:'/getData', type:'get', dataType:'json', data:{username: 'hunger'}, success: onSuccess, error: onError})
+
+    function onSuccess(data){
+    	console.log(data);
+    }
+
+    function onError(){
+    	console.log('出错了')
+    }
+
+
+    </script>
+</body>
+</html>
